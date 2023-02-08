@@ -1,0 +1,233 @@
+/* Global Variables */
+:root {
+  /* Background Color of the page */
+  --bg: #02001D;
+  /* Background Color of the Note*/
+  --noteColor:#072B55;
+  /* Foreground Color of the Note*/
+  --textColor: #FFFFFF;
+  --placeHolderTextColor: #cfcfc2;
+  --noteBorder: #141314;
+  --deleteColor: #FF0000;
+  --editColor: #00bb00;
+  --saveColor: #FFFFA0;
+}
+
+body{
+  margin: 0;
+  background-color: var(--bg);
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.new-note {
+  margin-bottom: 32px;
+  background-color: var(--noteColor);
+  border: 1px solid var(--noteBorder);
+  border-radius: 6px;
+  padding: 16px;
+  position: relative;
+}
+
+.new-note input {
+  color: var(--textColor);
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0 0 12px;
+}
+
+.new-note textarea {
+  color: var(--textColor);
+  display: block;
+  width: 100%;
+  min-height: 100px;
+  border: none;
+  resize: none;
+  background: transparent;
+  outline: none;
+  padding: 0;
+}
+
+.new-note input::placeholder{
+  color: var(--placeHolderTextColor);
+}
+
+.new-note textarea::placeholder{
+  color: var(--placeHolderTextColor);
+}
+
+#form-error {
+  color: #b00020;
+  position: absolute;
+  bottom: -32px;
+  left: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.add-btn {
+  /* Stackbit's button */
+  align-items: center;
+  appearance: none;
+  background-color: #3EB2FD;
+  background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
+  background-size: calc(100% + 20px) calc(100% + 20px);
+  border-radius: 100px;
+  border-width: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: CircularStd,sans-serif;
+  font-size: 1rem;
+  height: auto;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 6px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s,background-position .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.add-btn:active,
+.add-btn:focus {
+  outline: none;
+}
+
+.add-btn:hover {
+  background-position: -20px -20px;
+}
+
+.add-btn:focus:not(:active) {
+  box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
+}
+
+.add-btn:hover {
+  background-color: #78716c;
+  color: white;
+}
+
+#notes-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.note {
+  position: relative;
+  overflow: hidden;
+  background: var(--noteColor);
+  border: 1px solid var(--noteBorder);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.note-title {
+  color: var(--textColor);
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  width: 100%;
+  display: inline-block;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.note-title:last-child {
+  margin-bottom: 0;
+}
+
+.note-text {
+  margin-bottom: 16px;
+  color: var(--textColor);
+  background-color: var(--noteColor);
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.note-date {
+  color: var(--textColor);
+  /* font-size: 0.75em; */
+  font-weight: bolder;
+  text-align: right;
+  /* border-top: 1px solid #dadada; */
+  padding-top: 8px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.note-controls {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: var(--noteColor);
+  font-size: 0.75rem;
+  column-gap: 8px;
+  padding: 8px;
+  display: flex;
+  opacity: 0;
+  transition: opacity 350ms;
+}
+
+.note:hover .note-controls,
+.note-controls:focus-within {
+  opacity: 1;
+}
+
+.note-controls button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.note-controls button:hover {
+  filter: brightness(0.85)
+}
+
+.note-delete {
+  color: var(--deleteColor);
+}
+
+.note-edit {
+  color: var(--editColor);
+}
+
+.note-save {
+  color: var(--saveColor);
+}
+
+.note-save[disabled="true"] {
+  color: var(--textColor);
+  pointer-events: none;
+  user-select: none;
+  cursor: not-allowed;
+}
+
+.note > *[contenteditable="true"] {
+  color: var(--saveColor);
+  width: 100%;
+  outline: none;
+}
